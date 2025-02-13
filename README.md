@@ -2,6 +2,8 @@
 
 A Next.js application that uses Google's Gemini 2.0 Flash model to analyze resumes and provide detailed feedback. Upload your PDF resume and get instant, AI-powered feedback on format, content, strengths, and areas for improvement.
 
+Check the app at [Resume Feedback App](https://resume-feedback-app.vercel.app/).
+
 ## Features
 
 - PDF resume upload and validation
