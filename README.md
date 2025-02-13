@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Resume Feedback App
 
-## Getting Started
+A Next.js application that uses Google's Gemini 2.0 Flash model to analyze resumes and provide detailed feedback. Upload your PDF resume and get instant, AI-powered feedback on format, content, strengths, and areas for improvement.
 
-First, run the development server:
+## Features
 
+- PDF resume upload and validation
+- AI-powered resume analysis using Google Gemini Pro Vision
+- Detailed feedback on:
+  - Overall presentation and format
+  - Content effectiveness and impact
+  - Key strengths
+  - Areas for improvement
+
+## Tech Stack
+
+- Next.js 14
+- React
+- Google Generative AI SDK
+- Tailwind CSS
+- Vercel (deployment)
+
+## Prerequisites
+
+- Node.js 18.17 or later
+- Google AI API key (Gemini Pro Vision access)
+- NPM or Yarn package manager
+
+## Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/Meet1903/Resume-Feedback-App.git
+cd resume-feedback-app
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Set up environment variables:
+Create a `.env.local` file in the root directory and add:
+```
+GOOGLE_AI_API_KEY=your_api_key_here
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Install shadcn/ui:
+```bash
+npx shadcn@latest init
+```
+Choose your preferred style options when prompted.
 
-## Learn More
+5. Add required shadcn/ui components:
+```bash
+npx shadcn@latest add alert
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Development
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Run the development server:
+```bash
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The app is configured for deployment on Vercel. To deploy:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Push your code to a GitHub repository
+2. Connect the repository to Vercel
+3. Add your `GOOGLE_AI_API_KEY` to Vercel's environment variables
+4. Deploy!
+
+## File Structure
+
+```
+resume-feedback-app/
+├── app/
+│   ├── api/
+│   │   └── upload/
+│   │       └── route.js
+│   └── page.tsx
+├── components/
+│   └── ui/
+├── public/
+├── .env.local
+├── vercel.json
+└── package.json
+```
+
+## Support
+
+For support, email meet.diwan@nyu.edu or open an issue in the GitHub repository.
