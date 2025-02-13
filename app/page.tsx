@@ -20,8 +20,8 @@ export default function ResumeFeedback() {
         }
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const handleSubmit = async (event: any) => {
+        event.preventDefault();
         if (!file) return;
 
         try {
