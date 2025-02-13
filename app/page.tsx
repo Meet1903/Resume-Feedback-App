@@ -26,6 +26,9 @@ export default function ResumeFeedback() {
 
         try {
             setLoading(true);
+            setError('');
+            setFeedback('');
+
             const formData = new FormData();
             formData.append('resume', file);
 
@@ -33,13 +36,21 @@ export default function ResumeFeedback() {
                 method: 'POST',
                 body: formData,
             });
-
-            if (!response.ok) throw new Error('Failed to analyze resume');
-
             const data = await response.json();
+
+            if (!response.ok) {
+                if (response.status === 504) {
+                    throw new Error(
+                        'The analysis took too long. Please try with a smaller PDF or try again later.',
+                    );
+                }
+                throw new Error(data.error || 'Failed to analyze resume');
+            }
             setFeedback(data.feedback);
-        } catch (err) {
-            setError('Error analyzing resume. Please try again.');
+        } catch (err: any) {
+            setError(
+                err.message || 'Error analyzing resume. Please try again.',
+            );
             console.error(err);
         } finally {
             setLoading(false);
